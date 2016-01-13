@@ -1,0 +1,54 @@
+<head>
+  <title>landon</title>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="large-12 column">
+        {{> categories}} <!-- Referecing the template 'name' -->
+        </div>
+    </div>
+    <div class="row">
+        <div class='large-12 column'>
+        {{#each family}}
+            {{>people}}
+        {{/each}}
+        </div>
+    </div>
+    
+    <div>
+        {{>task}}
+    </div>
+    <br>
+    <div><h4>hi</h4>
+
+            {{#each person}}
+                <ul>{{>fry}}</ul>
+            {{/each}}
+    </div>
+    
+    
+</body>
+
+<template name="categories"> <!-- Name of the template to refernece in HTML-->
+
+    {{#each list}} <!-- Directly Referencing the collection -->
+        <div class="button radius">
+        {{Category}} <!-- Directly Refernecing the Object in the Collection -->
+        </div>
+    {{/each}}
+
+</template>
+
+<template name="people">
+    <button class="button alert">{{name}}</button> <!-- The Key value of the object itterated -->
+</template>
+
+<template name="task">
+    {{safe}}
+</template>
+
+<template name="fry"> <!-- The entire location basiclly becomes a data object.-->
+    <li>{{name}}</li>
+</template>
